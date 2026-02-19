@@ -1,0 +1,27 @@
+spring:
+  h2:
+    console.enabled=true
+  datasource:
+    url: jdbc:h2:mem:dcbapp
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+  logging:
+    level:
+      root: warn
+      org.springframework.web: debug
+      org.hibernate: error
+
+project:
+   id: 6306096666902528
+   env:  sandbox
+infos:
+  bankCode: 20018183
+  branchCode: "0001"
+  accountNumber: 6341320293482496
+  taxId: 20.018.183/0001-80
+  name: Stark Bank S.A
+  accountType: payment
