@@ -40,8 +40,7 @@ public class ScheduledTasks {
     private String environment;
 
 
-    //@Scheduled(cron = "0 0 */3 * * *")
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0 */3 * * *")
     public void reportCurrentTime() {
         logger.info("start schedule invoice: {}", new Date());
         try{
@@ -66,11 +65,8 @@ public class ScheduledTasks {
                 repository.save(invoiceControll);
             }
 
-           // invoices = invoicesService.createdInvoice(invoices);
-
-            for (Invoice invoice : invoices) {
-                System.out.println(invoice);
-            }
+            invoices = invoicesService.createdInvoice(invoices);
+            logger.info("invoices created: {}", invoices.size());
         }catch (Exception e){
             logger.error("Error: {}", e.getMessage(), e);
         }
